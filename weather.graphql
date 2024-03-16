@@ -1,0 +1,61 @@
+type Query {
+  getWeather(id: Int!): Weather
+}
+
+type Weather {
+  id: Int!
+  publicTime: String
+  publicTimeFormatted: String
+  publishingOffice: String
+  title: String
+  description: WeatherDescription
+  forecasts: [WeatherForecast]
+}
+
+type WeatherDescription {
+  bodyText: String
+}
+
+type WeatherForecast {
+  date: String
+  dateLabel: String
+  telop: String
+  detail: WeatherForecastDetail
+  temperature: WeatherForecastTemperature
+  chanceOfRain: WeatherForecastChanceOfRain
+  image: WeatherForecastImage
+}
+
+type WeatherForecastDetail {
+  weather: String
+  wind: String
+  wave: String
+}
+
+type WeatherForecastTemperature {
+  min: WeatherForecastTemperatureMin
+  max: WeatherForecastTemperatureMax
+}
+
+type WeatherForecastTemperatureMin {
+  celsius: Float
+  fahrenheit: Float
+}
+
+type WeatherForecastTemperatureMax {
+  celsius: Float
+  fahrenheit: Float
+}
+
+type WeatherForecastChanceOfRain {
+  T00_06: String
+  T06_12: String
+  T12_18: String
+  T18_24: String
+}
+
+type WeatherForecastImage {
+  url: String
+  width: Int
+  height: Int
+}
